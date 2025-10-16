@@ -1,0 +1,20 @@
+{
+  "name": "youthemployment",
+  "version": "1.0.0",
+  "type": "module",
+  "lockfileVersion": 3,
+  "requires": true,
+  "description": "Digital platform to promote decent work and economic growth (SDG 8).",
+  "main": "src/server.js",
+  "packages": {},
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

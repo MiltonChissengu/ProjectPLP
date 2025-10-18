@@ -8,7 +8,7 @@ body {
 header {
   background: #0077b6;
   color: white;
-  padding: 1em 2em;
+  padding: 1px 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,19 +21,27 @@ nav a {
 }
 
 .hero {
+  background-image: url(../img/pexels-fauxels-3184634.jpg);
+  background-size: cover;
+  background-position: center;
   text-align: center;
-  padding: 5em 2em;
-  background: linear-gradient(to right, #0096c7, #48cae4);
+  padding: 11em 2em;
+  /* background: linear-gradient(to right, #0096c7, #48cae4); */
   color: white;
 }
 
 .btn {
-  background: white;
-  color: #0077b6;
+  background: #0077b6;
+  color: #fff;
   padding: 0.8em 1.5em;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  transition: all .3s;
+}
+
+.btn:hover{
+  background-color: #0280c4; 
 }
 
 footer {

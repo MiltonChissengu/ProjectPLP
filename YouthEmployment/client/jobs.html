@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Jobs — Youth Employment</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Vacancies</h1>
+    <nav><a href="index.html">Home</a> <a href="login.html">Login</a></nav>
+  </header>
+
+  <main class="container">
+    <section id="jobsList">Loading vacancies...</section>
+  </main>
+
+  <script src="assets/script.js"></script>
+  <script>
+    // pede para script.js renderizar vagas
+    window.addEventListener('load', () => {
+      if (typeof renderJobs === 'function') renderJobs();
+    });
+  </script>
+</body>
+</html>

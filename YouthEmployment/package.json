@@ -1,20 +1,26 @@
 {
   "name": "youthemployment",
   "version": "1.0.0",
-  "type": "module",
-  "lockfileVersion": 3,
-  "requires": true,
-  "description": "Digital platform to promote decent work and economic growth (SDG 8).",
+  "description": "Youth Employment - platform for decent work (SDG8)",
   "main": "src/server.js",
-  "packages": {},
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  },
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
+  "keywords": [],
+  "author": "Vida",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

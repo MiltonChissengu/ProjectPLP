@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="assets/login.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Login — Youth Employment</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-    <div class="login">
-        <h3>Youth Employment</h3>
-        <h5>Login</h5>
-        <form action="" method="post">
-           <label for="user">Username:</label>
-           <input type="text" name="username" placeholder="Enter the username" />
-           <label for="email">Email:</label>
-           <input type="email" name="email" placeholder="Enter your email" />
-           <label for="password">Password:</label>
-           <input type="password" name="password" placeholder="Enter your new password" />
-           <center>
-            <input type="submit" value="submit" class="submit"><br><br>
-            <a href="register.html"><span>Don't you have an account?</span> Click here</a>
-           </center>
-        </form>
-    </div>
+  <main class="container auth">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label>Email<input type="email" id="email" required></label>
+      <label>Password<input type="password" id="password" required></label>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <p>Don't you already have an account? <a href="register.html">Register</a></p>
+  </main>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>

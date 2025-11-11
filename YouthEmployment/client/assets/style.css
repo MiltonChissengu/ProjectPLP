@@ -1,13 +1,13 @@
 /* client/assets/style.css */
 :root{--accent:#2b7a78;--bg:#f5f7fa}
 *{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#222}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#222;padding-bottom: 40px;}
 .site-header{display:flex;justify-content:space-between;align-items:center;padding:2.5px 35px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
 h1.font-effect-outline{color: #0077b6;}
 header nav{display:flex; gap: 18px;}
 nav a{text-decoration: none; color:#222; font-size: 18px;transition: all .2s;}
 nav a:hover{color:#0077b6;}
-.container{max-width:980px;margin:32px auto;padding:0 16px}
+.container{margin:32px auto;padding:0 45px}
 .hero{background:linear-gradient(90deg, #30769b,#017dc0);color:#fff;padding:32px;border-radius:8px;text-align:center;}
 .hero p{margin-bottom: 2rem;}
 .btn{background:#fff;color:#30769b;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight: 500;transition: all .2s;}
@@ -25,3 +25,12 @@ button.btn:hover{color: #fff;background: #017dc0;}
 form#registerForm{line-height: 30px;width: 100%;}
 select#role{outline: none;}
 #jobsList .job{background:#fff;padding:14px;border-radius:8px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.vacanices{margin-top: 10rem;margin: 0 2rem;}
+.vacanices h2{text-align: center;color: #0077b6;}
+.vacani{display: flex;flex-direction: row;margin-top: 3rem;gap: 1rem;justify-content: space-between;}
+.vac1{width:400px;position:relative;background: #fff;box-shadow:0 1px 4px rgba(0,0,0,0.06);padding: 15px;border-radius: 15px;padding-bottom:35px;transition: all .2s;cursor: pointer;}
+.vac1:hover{transform: scaleY(1.05);}
+.vac1 h3{color: #0077b6;text-align: center;}
+.vac1 p{line-height: 28px;}
+.explore{bottom: 13px;position: absolute;width: 88%;padding: 5px 0;border: 0;background: #0077b6;transition: all .3s ease;color: #fff;font-size: 16px;border-radius: 5px;text-transform:uppercase;cursor: pointer;}
+.explore:hover{background: #017dc0;}

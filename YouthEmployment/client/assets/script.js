@@ -43,12 +43,15 @@ if (loginForm) {
       localStorage.setItem('token', data.accessToken);
       localStorage.setItem('user', JSON.stringify(data.user || {}));
       alert('Sucessfull Login!');
-      window.location.href = 'index.html';
+      window.location.href = 'home.html';
     } else {
       alert(data.error || 'Login error');
     }
+  
   });
 }
+
+datr();
 
 /* Register form */
 const registerForm = document.getElementById('registerForm');

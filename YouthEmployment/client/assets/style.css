@@ -4,10 +4,10 @@
 body{font-family:Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:#222;padding-bottom: 40px;}
 .site-header{display:flex;justify-content:space-between;align-items:center;padding:2.5px 35px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
 h1.font-effect-outline{color: #0077b6;}
-header nav{display:flex; gap: 18px;}
+header nav{display:flex; gap: 18px; align-items: center;}
 nav a{text-decoration: none; color:#222; font-size: 18px;transition: all .2s;}
-nav a:hover{color:#0077b6;}
-.container{margin:32px auto;padding:0 45px}
+nav a.hover:hover{color:#0077b6;}
+.container{margin:32px auto;padding:0 45px;position: relative;}
 .hero{background:linear-gradient(90deg, #30769b,#017dc0);color:#fff;padding:32px;border-radius:8px;text-align:center;}
 .hero p{margin-bottom: 2rem;}
 .btn{background:#fff;color:#30769b;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight: 500;transition: all .2s;}

@@ -1,5 +1,5 @@
 // client/assets/script.js
-const API = 'http://localhost:5000/api';
+const API = 'http://localhost:5000/api/auth';
 
 async function apiPost(path, body, auth=false) {
   const headers = {'Content-Type':'application/json'};
@@ -18,7 +18,17 @@ async function apiGet(path, auth=false) {
     if (token) headers['Authorization'] = `Bearer ${token}`;
   }
   const res = await fetch(API + path, { headers });
-  return res.json();
+  // const res2 = await fetch(API2 + path, { headers });
+  const text = await res.text();
+  // const text2 = await res2.text();
+  
+  try {
+    return JSON.parse(text);
+  } catch {
+    console.error("Resposta não-JSON:", text);
+    throw new Error("Resposta não JSON da API");
+  }
+
 }
 
 /* Login form */
@@ -28,12 +38,12 @@ if (loginForm) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const data = await apiPost('/auth/login', { email, password });
+    const data = await apiPost('/login', { email, password });
     if (data.accessToken) {
       localStorage.setItem('token', data.accessToken);
       localStorage.setItem('user', JSON.stringify(data.user || {}));
       alert('Sucessfull Login!');
-      window.location.href = 'jobs.html';
+      window.location.href = 'index.html';
     } else {
       alert(data.error || 'Login error');
     }
@@ -49,11 +59,11 @@ if (registerForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const role = document.getElementById('role').value;
-    const data = await apiPost('/auth/register', { name, email, password, role });
+    const data = await apiPost('/register', { name, email, password, role });
     if (data.accessToken) {
       localStorage.setItem('token', data.accessToken);
       alert('Registration completed! Redirecting...');
-      window.location.href = 'jobs.html';
+      window.location.href = 'index.html';
     } else {
       alert(data.error || 'Error in registration');
     }
@@ -65,7 +75,7 @@ async function renderJobs() {
   const cont = document.getElementById('jobsList');
   cont.innerHTML = 'Loading...';
   try {
-    const jobs = await apiGet('/jobs');
+    const jobs = await apiGet('/api/jobs');
     if (!jobs || jobs.error) return cont.innerHTML = `<p>Erro: ${jobs.error||'No vacancies'}</p>`;
     cont.innerHTML = '';
     jobs.forEach(j => {

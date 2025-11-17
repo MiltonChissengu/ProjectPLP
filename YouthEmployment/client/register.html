@@ -10,21 +10,22 @@
   <main class="container auth">
     <h2>Youth Employment</h2>
     <h2>Register</h2>
-    <form id="registerForm">
-      <label>Name<input type="text" id="name" required></label>
-      <label>Email<input type="email" id="email" required></label>
-      <label>Password<input type="password" id="password" required></label>
+    <form id="registerForm" action="" method="post">
+      <label>Name<input type="text" id="name" name="name" required></label>
+      <label>Email<input type="email" id="email" name="email" required></label>
+      <label>Password<input type="password" id="password" name="password" required></label>
       <label>Type of
         <select id="role">
           <option value="USER">User</option>
           <option value="EMPLOYER">Employer</option>
+          <option value="CONTRACTOR">Contractor</option>
         </select>
       </label>
-      <button class="btn" type="submit">Register</button>
+      <button class="btn" type="submit" name="submit">Register</button>
     </form>
     <p>Do you already have an account? <a href="login.html">Login</a></p>
   </main>
 
-  <script src="assets/script.js"></script>
+  <script src="/assets/script.js"></script>
 </body>
 </html>

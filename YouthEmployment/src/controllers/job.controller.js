@@ -16,10 +16,10 @@ exports.createJob = async (req, res) => {
     // só empregadores podem criar — aqui simplificamos: se role === 'EMPLOYER'
     if (!req.user || req.user.role !== 'EMPLOYER') return res.status(403).json({ error: 'Only employers can create vacancies' });
 
-    const { title, description, location, salary } = req.body;
+    const { employer_name, title, description, location, salary } = req.body;
     if (!title || !description) return res.status(400).json({ error: 'Incomplete data' });
 
-    const job = await Job.create({ title, description, location, salary });
+    const job = await Job.create({ employer_name, title, description, location, salary });
     res.status(201).json(job);
   } catch (err) {
     res.status(500).json({ error: err.message });

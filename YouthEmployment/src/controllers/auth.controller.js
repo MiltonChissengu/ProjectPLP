@@ -14,11 +14,20 @@ exports.register = async (req, res) => {
 
     const exists = await User.findOne({ where: { email } });
     if (exists) return res.status(400).json({ error: 'Email already registered' });
-
-    const hashed = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, password: hashed, role: role || 'USER' });
+    
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minutes = date.getMinutes();
+    const secound = date.getSeconds();
+    const createdAt = `${year}-${month}-${day} ${hour}:${minutes}:${secound}`;
+    const updatedAt = `${year}-${month}-${day} ${hour}:${minutes}:${secound}`;
+    // const hashed = await bcrypt.hash(password, 10);
+    const user = await User.create({ name, email, password, role: role || 'USER' , createdAt, updatedAt});
     const token = generateToken(user);
-    res.status(201).json({ user: { id: user.id, name: user.name, email: user.email, role: user.role }, accessToken: token });
+    res.status(201).json({ user: { id: user.id, name: user.name, email: user.email, role: user.role, createdAt: user.createdAt, updatedAt: user.updatedAt}, accessToken: token });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -32,11 +41,12 @@ exports.login = async (req, res) => {
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(404).json({ error: 'User not found' });
 
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) return res.status(401).json({ error: 'Incorrect password' });
+    // const match = await bcrypt.compare(password, user.password);
+    // if (!match) return res.status(401).json({ error: 'Incorrect password' });
+    if (password !== user.password) return res.status(401).json({ error: 'Incorrect password' });
 
     const token = generateToken(user);
-    res.json({ accessToken: token, user: { id: user.id, name: user.name, email: user.email, role: user.role } });
+    res.json({ accessToken: token, user: { id: user.id, name: user.name, email: user.email, password: user.password, role: user.role } });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
